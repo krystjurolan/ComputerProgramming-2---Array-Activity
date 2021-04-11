@@ -1,0 +1,42 @@
+#include <stdio.h>
+#include <stdlib.h>
+
+int size = 6; //in the future version of this program, the value of this variable can be inputed by the user
+int sum; //this will store the sum of all the values in the array
+
+
+int function1(int arry2[size] , int x); //this function will be the recursion
+
+
+int main()
+{
+    int arry[size]; //the array variable
+    int counter;
+
+    printf("Size of array: %d\n", size); //displays the size of the array
+
+    //this loop asks the user for the values to be stored on the array:
+    for (counter = 0 ; counter < size ; counter++){
+        printf("Element %d: ", counter+1);
+        scanf("%d", &arry[counter]);
+    }
+
+    function1(arry , 0); //calls the recursion function
+
+    printf("Sum of all array elements: %d\n\n", sum); //prints the sum of all the values in the array
+
+    return 0;
+}
+
+int function1(int arry2[] , int x)
+{
+    sum += arry2[x]; //calls every value in the array and add them
+
+    //implementation of the recursion:
+    if (x == 5){
+        return (sum);
+    }
+    else{
+        return function1(arry2 , x + 1);
+    }
+}
